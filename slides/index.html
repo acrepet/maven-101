@@ -70,15 +70,6 @@
 					</ul>
 				</section>
 				<section>
-					<h2>Apports de Maven</h2>
-					<ul>
-						<li>Amélioration du processus de développement en suivant des bonnes pratiques</li>
-						<li>Automatisation et maîtrise du processus de construction</li>
-						<li>Meilleure fiabilité des livrables grâce à notamment à l’intégration continue</li>
-					</ul>
-					</p>
-				</section>
-				<section>
 					<h2>De Make à Maven!</h2>
 					<img width="320" src="img/maven_evolution.jpg" alt="Maven Evolution">
 				</section>
@@ -140,7 +131,30 @@
 &lt;/project&gt;
 					</code></pre>
 				</section>
-
+				<section>
+					<h2>Spécifier très précisément vos dépendances avec Maven</h2>
+					<ul>
+						<li>Nom de la dépendance : groupId & artifactId</li>
+						<li>Version de la dépendance</li>
+						<li>Type de la dépendance</li>
+						<li>Portée : compile, runtime, test, provided</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Maven, gérer les dépendances (1/2)</h2>
+					<p>Maven vérifie que les dépendances sont honorées avant de commencer le cycle de construction
+					</br>...Sinon, le build s’arrête!</br>
+				</section>
+				<section>
+					<h2>Maven, gérer les dépendances (2/2)</h2>
+					<p>Pour honorer ces dépendances, il faut obtenir les librairies correspondantes.
+					<br/>Elles sont stockées dans des repositories publics ou privés &#8594; Rôle des Repository Managers (Nexus, Archiva)
+					</p>
+				</section>
+				<section>
+					<h2>Nexus</h2>
+					<img src="img/nexus.jpg" alt="nexus">
+				</section>
 				<section>
 					<h1>THE END</h1>
 					<h3>QUESTIONS?</h3>
