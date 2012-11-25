@@ -3,7 +3,7 @@
 Introduction to Maven (French)
 
 
-#### Contents:
+#### Réalisé avec :
 
 Slides are in index.html (and needs all the stuff included for revealjs).
 
