@@ -41,8 +41,8 @@
 					<h2>Objectifs de la session</h2>
 					<p>
 					<ul>
-						<li>Compiler, Packager une application java avec Maven</li>
-						<li>Comprendre les procédures de déploiement, en partie automatisees avec Maven</li>
+						<li>Compiler, packager, déployer une application java avec Maven</li>
+						<li>Gérer les dépendances d'un projet avec Maven</li>
 						<li>Comprendre les bénéfices de l'intégration continue</li>
 					</ul>
 					</p>
@@ -78,6 +78,7 @@
 					<ul>
 						<li>De l’expérience et des insuffisances de Ant </li>
 						<li>Du besoin de capitalisation des connaissances de la communauté Apache en terme de gestion de projet logiciel</li>
+						<li>Maven 3.0 : première release en octobre 2012</li>
 					</ul>
 				</section>
 				<section>
@@ -94,13 +95,14 @@
 						<li>Coût de prise en main mais vite rentabilisé</li>
 						<li>Plus haut niveau</li>
 						<li>Plus réutilisable</li>
+						<li><em>Convention over Configuration</em></li>
 					</ul>
 				</section>
 				<section>
 					<h2>le POM</h2>
 					<h3>La carte d'identité d'un projet Maven</h3>
 					<p>C’est le lien entre le projet et Maven</p>
-					 <img width="320" src="img/pom.jpg" alt="pom">
+					 <img width="320" src="img/CarteIdentité.jpg" alt="pom">
 				</section>
 				<section>
 					<h2>POM : Project Object Model</h2>
@@ -153,13 +155,90 @@
 				</section>
 				<section>
 					<h2>Nexus</h2>
-					<img src="img/nexus.jpg" alt="nexus">
+					<p><img src="img/nexus.jpg" alt="nexus"></p>
+					<small>
+						PIC : Plateforme d'intégration continue
+					</small>
 				</section>
+				<section>
+					<h2>Cycle de vie et goals Maven (1/2)</h2>
+					<ul>
+						<li>A chaque phase du cycle correspond un goal</li>
+						<li>Un goal est une commande Maven demandant la réalisation d’une étape.</li>
+						<li>En lançant un goal, on passe également par toutes les étapes antérieures</li>
+						<li>Portée : compile, runtime, test, provided</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Cycle de vie et goals Maven (2/2)</h2>
+					<p><img width="421" src="img/cycle_maven.jpg" alt="cycle_maven"></p>
+				</section>
+				<section>
+					<h2>Phases principales (1/2)</h2>
+					<ul>
+						<li><em>generate-sources</em>: Génère le code source supplémentaire nécessité par l'application, ce qui est généralement accompli par les plug-ins appropriés (Jaxb, …)</li>
+						<li><em>compile</em>: Compile le code source du projet </li>
+						<li><em>test</em>: Exécute les tests unitaires (typiquement avec Junit) dans le répertoire src/test </li>
+					</ul>
+				</section>
+				<section>
+					<h2>Phases principales (2/2)</h2>
+					<ul>
+						<li><em>package</em>: Mets en forme le code compilé dans son format de diffusion (artefact JAR, WAR, etc.)</li>
+						<li><em>install</em>: Installe les artefacts produits dans l'entrepôt local, pour être utilisé comme dépendance des autres projets sur votre machine locale. </li>
+						<li><em>deploy</em>: Réalisé dans un environnement d'intégration ou de production, copie le produit final dans un entrepôt distant pour être partagé avec d'autres développeurs ou projets.</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Les mains dans le cambouis....</h2>
+					<h4>Gérer les fichiers de configuration</h4>
+					<ul>
+						<li>%M2_HOME\conf\settings.xml: situé parmi les binaries Maven, configuration par poste </li>
+						<li>%HOME%\.m2\settings.xml : situé dans le répertoire utilisateur, configuration propre à un utilisateur</li>
+						<li><em>deploy</em>: Réalisé dans un environnement d'intégration ou de production, copie le produit final dans un entrepôt distant pour être partagé avec d'autres développeurs ou projets.</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Les mains dans le cambouis....</h2>
+					<h4>Gérer les fichiers de configuration : pom.xml</h4>
+					<ul>
+						<li>situé au niveau du projet et de chaque module</li>
+						<li>il décrit la configuration spécifique à un projet ou un module</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Les mains dans le cambouis....</h2>
+					<h4>Installer Maven sur votre poste !</h4>
+					<ul>
+						<li>Dezipper l'archive apache-maven-3.0.4-bin.zip, soit %M2_HOME% ce répertoire</li>
+						<li>Vérifier votre %HOME%\.m2\settings.xml</li>
+						<li>Lancer votre nouveau projet: </li>
+					</ul>
+						<pre><code class="xml">
+mvn archetype:generate
+-DarchetypeGroupId=org.apache.maven.archetypes
+-DgroupId=com.ninjasquad
+-DartifactId=my-app
+</code>
+				</section>
+				<section>
+					<h2>Les mains dans le cambouis....</h2>
+					<h4>Vos premiers goals</h4>
+					<ul>
+						<li><code>mvn clean install</code></li>
+						<li><code>mvn site</code></li>
+						<li><code>mvn eclipse:eclipse</code></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Pour aller plus loin</h2>
+					<p><img src="img/livre.jpg" alt="Apache_Maven_Livre"></p>
+					<small>"Apache Maven" de Nicolas De loof et Arnaud Héritier (sur la version 2!)</small>
+				</section>				
 				<section>
 					<h1>THE END</h1>
 					<h3>QUESTIONS?</h3>
 				</section>
-
 			</div>
 
 		</div>
