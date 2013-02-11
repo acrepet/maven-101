@@ -62,14 +62,6 @@
 					</p>
 				</section>
 				<section>
-					<h2>Apports de Maven</h2>
-					<ul>
-						<li>Amélioration du processus de développement en suivant des bonnes pratiques</li>
-						<li>Automatisation et maîtrise du processus de construction</li>
-						<li>Meilleure fiabilité des livrables grâce notamment à l'intégration continue</li>
-					</ul>
-				</section>
-				<section>
 					<h2>De Make à Maven!</h2>
 					<img width="320" src="img/maven_evolution.jpg" alt="Maven Evolution">
 				</section>
@@ -79,23 +71,6 @@
 						<li>De l’expérience et des insuffisances de Ant </li>
 						<li>Du besoin de capitalisation des connaissances de la communauté Apache en terme de gestion de projet logiciel</li>
 						<li>Maven 3.0 : première release en octobre 2012</li>
-					</ul>
-				</section>
-				<section>
-					<h2>Ant</h2>
-					<ul>
-						<li>Rapide et simple au départ</li>
-						<li>Coût de maintenance et complexification lors d’évolutions des projets (surtout si larges)</li>
-						<li>Limitations (boucles, tests complexes, …)</li>
-					</ul>
-				</section>
-				<section>
-					<h2>Maven</h2>
-					<ul>
-						<li>Coût de prise en main mais vite rentabilisé</li>
-						<li>Plus haut niveau</li>
-						<li>Plus réutilisable</li>
-						<li><em>Convention over Configuration</em></li>
 					</ul>
 				</section>
 				<section>
@@ -134,6 +109,15 @@
 					</code></pre>
 				</section>
 				<section>
+					<h2>Convention over Configuration</h2>
+					<ul>
+						<li>src/main/java</li>
+						<li>src/main/resources</li>
+						<li>src/test/java</li>
+						<li>...</li>
+					</ul>
+				</section>
+				<section>
 					<h2>Spécifier très précisément vos dépendances avec Maven</h2>
 					<ul>
 						<li>Nom de la dépendance : groupId & artifactId</li>
@@ -161,9 +145,52 @@
 					</small>
 				</section>
 				<section>
+					<h2>Les mains dans le cambouis....</h2>
+					<h4>Installer Maven sur votre poste !</h4>
+					<ul>
+						<li>Dezipper l'archive apache-maven-3.0.4-bin.zip, soit <em>M2_HOME</em> ce répertoire</li>
+						<li>Settez la variable d'environnement <em>M2_HOME</em> et mettez à jour votre <em>PATH</em>
+						<li>Testez la ligne de commande suivante: <br/>
+						</li><code class="xml">mvn -version</code>
+					</ul>
+				</section>
+				<section>
+					<h2>Les mains dans le cambouis....</h2>
+					<h4>Comprende les fichiers de configuration!</h4>
+					<ul>
+						<li><em>M2_HOME</em>\conf\settings.xml: situé parmi les binaries Maven, configuration par poste </li>
+						<li>HOME\.m2\settings.xml : situé dans le répertoire utilisateur, configuration propre à un utilisateur</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Les mains dans le cambouis....</h2>
+					<h4>Votre premier projet Maven !</h4>
+					<ul>
+						<li>Lancer votre nouveau projet en laissant les paramètres par défaut
+												<pre><code class="xml">
+mvn archetype:generate
+-DarchetypeGroupId=org.apache.maven.archetypes
+-DgroupId=com.ninjasquad
+-DartifactId=my-app
+						</code>
+						</li>
+						<li>Aller voir votre projet (pom.xml, répertoires, fichiers)</li>
+					</ul>
+
+					
+				</section>
+				<section>
+					<h2>Gérer les fichiers de configuration : pom.xml</h2>
+					<ul>
+						<li>situé au niveau du projet et de chaque module</li>
+						<li>il décrit la configuration spécifique à un projet ou un module</li>
+					</ul>
+				</section>
+				<section>
 					<h2>Cycle de vie et goals Maven (1/2)</h2>
 					<ul>
 						<li>A chaque phase du cycle correspond un goal</li>
+						<li>Par exemple : <code class="xml">mvn compile</code></li>
 						<li>Un goal est une commande Maven demandant la réalisation d’une étape.</li>
 						<li>En lançant un goal, on passe également par toutes les étapes antérieures</li>
 						<li>Portée : compile, runtime, test, provided</li>
@@ -171,7 +198,7 @@
 				</section>
 				<section>
 					<h2>Cycle de vie et goals Maven (2/2)</h2>
-					<p><img width="421" src="img/cycle_maven.jpg" alt="cycle_maven"></p>
+					<p><img width="331" src="img/cycle_maven.jpg" alt="cycle_maven"></p>
 				</section>
 				<section>
 					<h2>Phases principales (1/2)</h2>
@@ -191,43 +218,99 @@
 				</section>
 				<section>
 					<h2>Les mains dans le cambouis....</h2>
-					<h4>Gérer les fichiers de configuration</h4>
-					<ul>
-						<li>%M2_HOME\conf\settings.xml: situé parmi les binaries Maven, configuration par poste </li>
-						<li>%HOME%\.m2\settings.xml : situé dans le répertoire utilisateur, configuration propre à un utilisateur</li>
-						<li><em>deploy</em>: Réalisé dans un environnement d'intégration ou de production, copie le produit final dans un entrepôt distant pour être partagé avec d'autres développeurs ou projets.</li>
-					</ul>
-				</section>
-				<section>
-					<h2>Les mains dans le cambouis....</h2>
-					<h4>Gérer les fichiers de configuration : pom.xml</h4>
-					<ul>
-						<li>situé au niveau du projet et de chaque module</li>
-						<li>il décrit la configuration spécifique à un projet ou un module</li>
-					</ul>
-				</section>
-				<section>
-					<h2>Les mains dans le cambouis....</h2>
-					<h4>Installer Maven sur votre poste !</h4>
-					<ul>
-						<li>Dezipper l'archive apache-maven-3.0.4-bin.zip, soit %M2_HOME% ce répertoire</li>
-						<li>Vérifier votre %HOME%\.m2\settings.xml</li>
-						<li>Lancer votre nouveau projet: </li>
-					</ul>
-						<pre><code class="xml">
-mvn archetype:generate
--DarchetypeGroupId=org.apache.maven.archetypes
--DgroupId=com.ninjasquad
--DartifactId=my-app
-</code>
-				</section>
-				<section>
-					<h2>Les mains dans le cambouis....</h2>
-					<h4>Vos premiers goals</h4>
+					<h4>Vos premiers goals</h4><br/>
+					<h4>Amusez-vous sur votre projet à lancer ces différentes commandes</h4>
 					<ul>
 						<li><code>mvn clean install</code></li>
+						<li><code>mvn test</code></li>
 						<li><code>mvn site</code></li>
-						<li><code>mvn eclipse:eclipse</code></li>
+						<li>allez lire la doc : <a href="http://maven.apache.org/guides">maven.apache.org/guides</a></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Les mains dans le cambouis....</h2>
+					<h4>Installer Maven dans Eclipse</h4><br/>
+					<ul>
+						<li>via Help -> Eclipse MarketPlace</li>
+						<li>Chercher le plugin <em>Maven Integration for Eclipse</em></li>
+						<li>Lancer la commande à la racine de votre projet : <br/><code>mvn eclipse:eclipse</code></li>
+						<li>Ouvrez votre projet via Eclipse (<em>Import Existing Maven Project</em>)</li>
+						<li>Apprenez à configurer des Executions Maven dans Eclipse sur votre projet (<em>Run Configurations</em>)</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Les mains dans le cambouis....</h2>
+					<h4>Archetype Java Web</h4>
+					<ul>
+					<li>Lancer votre nouveau projet web
+					<pre><code class="xml">
+mvn archetype:generate
+-DgroupId=com.ninjasquad \
+-DartifactId=my-webapp \
+-Dversion=1.0-SNAPSHOT \
+-DarchetypeArtifactId=maven-archetype-webapp \
+-DinteractiveMode=false
+</code>
+					</li>
+					<li>Aller voir votre projet (pom.xml, répertoires, fichiers)</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Les mains dans le cambouis....</h2>
+					<h4>Archetype Java Web</h4>
+					<h4>Lancer un packaging de votre projet et le déployer dans Tomcat!</h4>
+				</section>
+				<section>
+					<h2>Les mains dans le cambouis....</h4>
+					<h4>Configurer une construction Maven pour le déploiement Tomcat</h4>
+<img width="630" src="img/tomcat_deploy_eclipse.png" alt="tomcat deploy eclipse">
+				</section>
+				<section>
+					<h2>Les mains dans le cambouis....</h4>
+					<h4>Dans votre settings.xml, rajouter votre serveur tomcat et ses <em>credentials</em></h4>
+					<pre><code class="xml">
+&lt;server&gt;
+      &lt;id>myserver&lt;/id&gt;
+      &lt;username>tomcat&lt;/username&gt;
+      &lt;password>tomcat&lt;/password&gt;
+&lt;/server&gt;
+    </code></pre>
+				</section>
+				<section>
+					<h2>Les mains dans le cambouis....</h4>
+					<h4>Dans votre pom, ajouter le plugin tomcat7-maven-plugin (section <em>build</em>)</h4>
+<pre><code class="xml">
+&lt;pluginManagement&gt;
+	&lt;plugins&gt;
+		&lt;plugin&gt;
+		&lt;groupId&gt;org.apache.tomcat.maven&lt;/groupId&gt;
+		&lt;artifactId&gt;tomcat7-maven-plugin&lt;/artifactId&gt;
+		&lt;version&gt;2.0&lt;/version&gt;
+		&lt;configuration&gt;
+		&lt;url&gt;http://localhost:8080/manager/text&lt;/url&gt;
+		&lt;server&gt;myserver&lt;/server&gt;
+		&lt;path&gt;/my-webapp&lt;/path&gt;
+		&lt;/configuration&gt;
+		&lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/pluginManagement&gt;
+</code></pre>
+				</section>
+				<section>
+					<h2>Les mains dans le cambouis....</h4>
+					<h4>Démarrer Tomcat et lancer le goal maven</h4>
+					<pre><code class="xml">
+mvn tomcat7:deploy
+    </code></pre>
+				</section>
+				<section>
+					<h2>Les mains dans le cambouis....</h2>
+					<h4><em>Maveniser</em> un projet existant</h4>
+					<ul>
+						<li>Prenez un de vos projets existants</li>
+						<li>Maveniser-le!</li>
+						<li>Commencer par les dépendances</li>
+						<li>Puis jouer avec le reporting</li>
 					</ul>
 				</section>
 				<section>
@@ -237,7 +320,7 @@ mvn archetype:generate
 				</section>
 				<section>
 					<h2>Le cours</h2>
-					<h3>https://github.com/acrepet/maven-101</h3>
+					<h3><a href="https://github.com/acrepet/maven-101">https://github.com/acrepet/maven-101</a></h3>
 				</section>				
 				<section>
 					<h1>THE END</h1>
