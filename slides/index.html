@@ -160,18 +160,20 @@
 					<ul>
 						<li><em>M2_HOME</em>\conf\settings.xml: situé parmi les binaries Maven, configuration par poste </li>
 						<li>HOME\.m2\settings.xml : situé dans le répertoire utilisateur, configuration propre à un utilisateur</li>
+						<li>A noter que par défaut votre repository est dans HOME\.m2 !</li>
 					</ul>
 				</section>
 				<section>
 					<h2>Les mains dans le cambouis....</h2>
 					<h4>Votre premier projet Maven !</h4>
 					<ul>
-						<li>Lancer votre nouveau projet en laissant les paramètres par défaut
+						<li>Lancer votre nouveau projet Java standard :
 												<pre><code class="xml">
 mvn archetype:generate
 -DarchetypeGroupId=org.apache.maven.archetypes
 -DgroupId=com.ninjasquad
 -DartifactId=my-app
+-DinteractiveMode=false
 						</code>
 						</li>
 						<li>Aller voir votre projet (pom.xml, répertoires, fichiers)</li>
@@ -221,10 +223,28 @@ mvn archetype:generate
 					<h4>Vos premiers goals</h4><br/>
 					<h4>Amusez-vous sur votre projet à lancer ces différentes commandes</h4>
 					<ul>
+						<li><code>cd my-app</code> (se placer toujours à la racine de votre projet)</li>
 						<li><code>mvn clean install</code></li>
 						<li><code>mvn test</code></li>
-						<li><code>mvn site</code></li>
 						<li>allez lire la doc : <a href="http://maven.apache.org/guides">maven.apache.org/guides</a></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Les mains dans le cambouis....</h2>
+					<h4>Le site web de votre projet Maven</h4><br/>
+					<h4>Faites en sorte de générer un site avec les rapports des tests unitaires de votre projet</h4>
+					<ul>
+						<li><code>mvn site</code></li>
+						<li>voir le plugin : http://maven.apache.org/surefire/maven-surefire-report-plugin/
+					</ul>
+				</section>
+				<section>
+					<h2>Les mains dans le cambouis....</h2>
+					<h4>Les dépendances</h4><br/>
+					<ul>
+						<li>Rajoutez des dépendances dans votre pom.xml</li>
+						<li>La choisir via l'annuaire http://mvnrepository.com/ par exemple</li>
+						<li>Observez votre repository : HOME\.m2</li>
 					</ul>
 				</section>
 				<section>
